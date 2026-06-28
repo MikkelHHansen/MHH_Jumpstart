@@ -107,10 +107,10 @@ local presets = {
         armor = 'auto',
         grid = (function() local g = copy_grid(base_equipment_grid); add_prototype_to_grid(g); return g end)(),
         items = {
-            {    5, 'mhh-prototype-battery' },
-            {    6, 'mhh-prototype-exoskeleton' },
+            {    3, 'mhh-prototype-battery' },
+            {    3, 'mhh-prototype-exoskeleton' },
             {    1, 'mhh-prototype-fusion-reactor' },
-            {   50, 'mhh-prototype-personal-laser-defense' },
+            {    6, 'mhh-prototype-personal-laser-defense' },
             {    3, 'mhh-prototype-energy-shield' },
             {    2, 'mhh-prototype-personal-roboport' },
             { 2000, 'mhh-prototype-construction-robot' },
