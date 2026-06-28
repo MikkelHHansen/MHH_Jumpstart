@@ -200,7 +200,7 @@ end)
 
 script.on_configuration_changed(function(data)
     storage.players = storage.players or {}
-    if data.mod_changes['MHH_Jumpstart'] then
+    if data.mod_changes['MHH_Jumpstart'] or data.mod_changes['MHH_Prototype_Equipment'] then
         for _, player in pairs(game.players) do
             if has_jumpstart_armor(player) then
                 storage.players[player.name] = true

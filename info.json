@@ -1,13 +1,13 @@
 {
   "name": "MHH_Jumpstart",
-  "version": "1.8.7",
+  "version": "1.8.8",
   "title": "MHH Jumpstart",
   "author": "MikkelHHansen",
   "source": "https://github.com/MikkelHHansen/FactorioMods",
   "homepage": "https://github.com/MikkelHHansen/FactorioMods",
   "dependencies": [
     "base >= 2.0.0",
-    "MHH_Prototype_Equipment",
+    "MHH_Prototype_Equipment >= 1.5.9",
     "(?) space-exploration",
     "(?) Krastorio2"
   ],

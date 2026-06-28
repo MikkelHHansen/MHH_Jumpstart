@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.8
+Date: 2026-06-28
+  Changes:
+    - Re-gift items when MHH_Prototype_Equipment updates (not just Jumpstart)
+    - Pinned minimum version for MHH_Prototype_Equipment dependency (>= 1.5.9)
+---------------------------------------------------------------------------------------------------
 Version: 1.8.7
 Date: 2026-06-28
   Changes:
