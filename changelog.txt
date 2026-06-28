@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.4
+Date: 2026-06-28
+  Changes:
+    - Fixed stale mod reference in README (MHH_RR_Items → MHH_Prototype_Equipment)
+    - Fixed stale item name in README (rr-power-armor → mhh-prototype-power-armor)
+    - Fixed locale descriptions to match actual preset contents (bot counts, science packs)
+---------------------------------------------------------------------------------------------------
 Version: 1.8.3
 Date: 2026-06-28
   Changes:
