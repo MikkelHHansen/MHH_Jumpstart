@@ -177,7 +177,7 @@ local function arm_player(player)
     storage.players[player.name] = true
 end
 
-local armor_checks = { 'mhh-prototype-power-armor', 'se-thruster-suit-4', 'se-thruster-suit-3', 'kr-power-armor-mk4', 'kr-power-armor-mk3', 'power-armor-mk2', 'power-armor' }
+local armor_checks = { 'mhh-prototype-power-armor', 'mhh-prototype-thruster-suit', 'se-thruster-suit-4', 'se-thruster-suit-3', 'kr-power-armor-mk4', 'kr-power-armor-mk3', 'power-armor-mk2', 'power-armor' }
 
 local function has_jumpstart_armor(player)
     local function check_inv(inv)
