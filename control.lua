@@ -68,7 +68,7 @@ local presets = {
                 table.insert(grid, 'kr-big-battery-mk2-equipment')
                 table.insert(grid, 'kr-big-battery-mk2-equipment')
                 table.insert(grid, 'kr-energy-shield-mk3-equipment')
-                table.insert(grid, 'kr-portable-generator-equipment')
+                table.insert(grid, 'kr-portable-generator')
                 table.insert(grid, 'personal-roboport-mk2-equipment')
             else
                 table.insert(grid, 'night-vision-equipment')
