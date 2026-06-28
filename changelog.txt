@@ -1,0 +1,6 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-06-28
+  Changes:
+    - Initial release: gives OP items, equipment, and armor at game start
+    - Extracted from MHH_Quickstart; requires MHH_RR_Items for item prototypes
