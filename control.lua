@@ -13,17 +13,27 @@ local prototype_equipment_grid = {
     'mhh-prototype-personal-roboport',
 }
 
+local function copy_grid(base)
+    local t = {}
+    for _, v in ipairs(base) do t[#t+1] = v end
+    return t
+end
+
+local function add_prototype_to_grid(grid)
+    for _, v in ipairs(prototype_equipment_grid) do grid[#grid+1] = v end
+end
+
 local presets = {
     balanced = {
         armor = 'power-armor-mk2',
-        grid = base_equipment_grid,
+        grid = copy_grid(base_equipment_grid),
         items = {
             { 50, 'construction-robot' },
         },
     },
     advanced = {
         armor = 'auto',
-        grid = base_equipment_grid,
+        grid = (function() local g = copy_grid(base_equipment_grid); add_prototype_to_grid(g); return g end)(),
         items = {
             { 200, 'mhh-prototype-construction-robot' },
             {  50, 'mhh-prototype-logistic-robot' },
@@ -37,7 +47,7 @@ local presets = {
     },
     overpowered = {
         armor = 'auto',
-        grid = base_equipment_grid,
+        grid = (function() local g = copy_grid(base_equipment_grid); add_prototype_to_grid(g); return g end)(),
         items = {
             { 500, 'mhh-prototype-construction-robot' },
             { 300, 'mhh-prototype-logistic-robot' },
@@ -52,7 +62,7 @@ local presets = {
     },
     cheaty = {
         armor = 'auto',
-        grid = {},
+        grid = (function() local g = copy_grid(base_equipment_grid); add_prototype_to_grid(g); return g end)(),
         items = {
             {    5, 'mhh-prototype-battery' },
             {    6, 'mhh-prototype-exoskeleton' },
@@ -68,12 +78,6 @@ local presets = {
         },
     },
 }
-
-for _, equip in ipairs(prototype_equipment_grid) do
-    table.insert(presets.advanced.grid, equip)
-    table.insert(presets.overpowered.grid, equip)
-    table.insert(presets.cheaty.grid, equip)
-end
 
 local function get_armor_name(preset)
     if preset.armor ~= 'auto' then
