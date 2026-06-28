@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2026-06-28
+  Changes:
+    - Added Krastorio 2 compatibility: auto-detects K2 and awards kr-power-armor-mk4
+    - Added K2 armors to armor-choice setting and has_jumpstart_armor detection
+    - SE takes priority over K2 when both are installed
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2026-06-28
+  Changes:
+    - Updated dependency from MHH_RR_Items to MHH_Prototype_Equipment
+    - Updated all item references from rr- to mhh-prototype- prefix
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2026-06-28
   Changes:

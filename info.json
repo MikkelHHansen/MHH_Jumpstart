@@ -1,15 +1,16 @@
 {
   "name": "MHH_Jumpstart",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "title": "MHH Jumpstart",
   "author": "MikkelHHansen",
   "source": "https://github.com/MikkelHHansen/FactorioMods",
   "homepage": "https://github.com/MikkelHHansen/FactorioMods",
   "dependencies": [
     "base >= 2.0.0",
-    "MHH_RR_Items",
-    "(?) space-exploration"
+    "MHH_Prototype_Equipment",
+    "(?) space-exploration",
+    "(?) Krastorio2"
   ],
-  "description": "Gives the player OP items, equipment, and armor at game start. Requires MHH_RR_Items.",
+  "description": "Gives the player OP items, equipment, and armor at game start. Requires MHH_Prototype_Equipment.",
   "factorio_version": "2.0"
 }

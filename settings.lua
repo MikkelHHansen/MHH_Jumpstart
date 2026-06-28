@@ -4,7 +4,7 @@ data:extend{
     type = 'string-setting',
     setting_type = 'startup',
     default_value = 'auto',
-    allowed_values = { 'auto', 'se-thruster-suit-4', 'rr-power-armor', 'none' },
+        allowed_values = { 'auto', 'se-thruster-suit-4', 'kr-power-armor-mk4', 'kr-power-armor-mk3', 'mhh-prototype-power-armor', 'none' },
     order = 'a'
   },
 }

@@ -1,26 +1,26 @@
 local equipment_to_place_in_grid = {
-    'rr-battery',
-    'rr-fusion-reactor',
-    'rr-energy-shield',
-    'rr-personal-laser-defense',
-    'rr-exoskeleton',
-    'rr-personal-roboport',
+    'mhh-prototype-battery',
+    'mhh-prototype-fusion-reactor',
+    'mhh-prototype-energy-shield',
+    'mhh-prototype-personal-laser-defense',
+    'mhh-prototype-exoskeleton',
+    'mhh-prototype-personal-roboport',
     'night-vision-equipment',
     'solar-panel-equipment',
     'belt-immunity-equipment',
 }
 
 local item_list = {
-    {  5, 'rr-battery'},
-    {  6, 'rr-exoskeleton'},
-    {  1, 'rr-fusion-reactor'},
-    { 50, 'rr-personal-laser-defense'},
-    {  3, 'rr-energy-shield'},
-    {  2, 'rr-personal-roboport'},
-    {2000, 'rr-construction-robot'},
+    {  5, 'mhh-prototype-battery'},
+    {  6, 'mhh-prototype-exoskeleton'},
+    {  1, 'mhh-prototype-fusion-reactor'},
+    { 50, 'mhh-prototype-personal-laser-defense'},
+    {  3, 'mhh-prototype-energy-shield'},
+    {  2, 'mhh-prototype-personal-roboport'},
+    {2000, 'mhh-prototype-construction-robot'},
     {  1, 'night-vision-equipment'},
     {  1, 'solar-panel-equipment'},
-    {1500, 'rr-logistic-robot'},
+    {1500, 'mhh-prototype-logistic-robot'},
     {  200, 'roboport-mk3'},
     {  10000, 'production-science-pack'},
     {  10000, 'utility-science-pack'},
@@ -33,8 +33,10 @@ local function get_armor_name()
     elseif choice == 'auto' then
         if script.active_mods['space-exploration'] then
             return 'se-thruster-suit-4'
+        elseif script.active_mods['Krastorio2'] then
+            return 'kr-power-armor-mk4'
         end
-        return 'rr-power-armor'
+        return 'mhh-prototype-power-armor'
     end
     return choice
 end
@@ -91,18 +93,17 @@ end
 
 local function has_jumpstart_armor(player)
     local armor_inv = player.get_inventory(defines.inventory.character_armor)
-    if armor_inv then
-        if armor_inv.find_item_stack('rr-power-armor') or armor_inv.find_item_stack('se-thruster-suit-4') then
-            return true
-        end
+
+    local function check_inv(inv)
+        if not inv then return false end
+        return inv.find_item_stack('mhh-prototype-power-armor')
+            or inv.find_item_stack('se-thruster-suit-4')
+            or inv.find_item_stack('kr-power-armor-mk4')
+            or inv.find_item_stack('kr-power-armor-mk3')
     end
 
-    local main_inv = player.get_main_inventory()
-    if main_inv then
-        if main_inv.find_item_stack('rr-power-armor') or main_inv.find_item_stack('se-thruster-suit-4') then
-            return true
-        end
-    end
+    if check_inv(armor_inv) then return true end
+    if check_inv(player.get_main_inventory()) then return true end
 
     return false
 end
