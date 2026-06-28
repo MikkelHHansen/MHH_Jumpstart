@@ -115,9 +115,7 @@ local presets = {
             {    2, 'mhh-prototype-personal-roboport' },
             { 2000, 'mhh-prototype-construction-robot' },
             { 1500, 'mhh-prototype-logistic-robot' },
-            {  200, 'mhh-prototype-roboport' },
-            {10000, 'production-science-pack' },
-            {10000, 'utility-science-pack' },
+            {   50, 'mhh-prototype-roboport' },
         },
     },
 }
