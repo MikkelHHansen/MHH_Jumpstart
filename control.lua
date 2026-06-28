@@ -134,7 +134,7 @@ end
 
 local function arm_player(player)
     if not (player and player.valid and player.name) then return end
-    if storage.players[player.name] then return end
+    if storage.players and storage.players[player.name] then return end
 
     local preset_name = settings.startup['mhh-jumpstart-preset'].value
     local preset = presets[preset_name]
@@ -219,5 +219,6 @@ end)
 
 script.on_event(defines.events.on_player_joined_game, function(event)
     local player = game.players[event.player_index]
+    pcall(function() player.exit_cutscene() end)
     arm_player(player)
 end)

@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.7
+Date: 2026-06-28
+  Changes:
+    - Added storage.players nil guard in arm_player() to prevent edge-case crash
+    - Added cutscene exit call to on_player_joined_game (was missing)
+    - Cleaned up legacy zip files from mods/ directory
+---------------------------------------------------------------------------------------------------
 Version: 1.8.6
 Date: 2026-06-28
   Changes:
