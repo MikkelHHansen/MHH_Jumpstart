@@ -25,24 +25,69 @@ end
 
 local presets = {
     balanced = {
-        armor = 'power-armor-mk2',
-        grid = copy_grid(base_equipment_grid),
-        items = {
-            { 50, 'construction-robot' },
-        },
+        armor = 'power-armor',
+        grid = (function()
+            local has_k2 = script.active_mods['Krastorio2']
+            local has_se = script.active_mods['space-exploration']
+            if has_se then
+                return { 'night-vision-equipment', 'belt-immunity-equipment', 'personal-laser-defense-equipment', 'battery-equipment', 'battery-equipment', 'solar-panel-equipment', 'se-rtg-equipment', 'se-lifesupport-equipment-1' }
+            elseif has_k2 then
+                return { 'kr-superior-night-vision-equipment', 'belt-immunity-equipment', 'kr-personal-laser-defense-mk2-equipment', 'kr-big-battery-equipment', 'kr-big-solar-panel-equipment', 'kr-big-solar-panel-equipment' }
+            else
+                return { 'night-vision-equipment', 'belt-immunity-equipment', 'personal-laser-defense-equipment', 'battery-equipment', 'battery-equipment', 'solar-panel-equipment', 'solar-panel-equipment', 'solar-panel-equipment', 'solar-panel-equipment', 'solar-panel-equipment' }
+            end
+        end)(),
+        items = {},
     },
     advanced = {
-        armor = 'auto',
-        grid = (function() local g = copy_grid(base_equipment_grid); add_prototype_to_grid(g); return g end)(),
+        armor = (function()
+            if script.active_mods['space-exploration'] then return 'se-thruster-suit-3'
+            elseif script.active_mods['Krastorio2'] then return 'kr-power-armor-mk3'
+            else return 'power-armor-mk2' end
+        end)(),
+        grid = (function()
+            local has_k2 = script.active_mods['Krastorio2']
+            local has_se = script.active_mods['space-exploration']
+            local grid = {}
+            if has_se then
+                table.insert(grid, 'night-vision-equipment')
+                table.insert(grid, 'belt-immunity-equipment')
+                table.insert(grid, 'personal-laser-defense-equipment')
+                table.insert(grid, 'exoskeleton-equipment')
+                table.insert(grid, 'battery-mk2-equipment')
+                table.insert(grid, 'battery-mk2-equipment')
+                table.insert(grid, 'energy-shield-mk3-equipment')
+                table.insert(grid, 'se-rtg-equipment')
+                table.insert(grid, 'se-lifesupport-equipment-2')
+                table.insert(grid, 'personal-roboport-mk2-equipment')
+            elseif has_k2 then
+                table.insert(grid, 'kr-superior-night-vision-equipment')
+                table.insert(grid, 'belt-immunity-equipment')
+                table.insert(grid, 'kr-personal-laser-defense-mk2-equipment')
+                table.insert(grid, 'kr-advanced-exoskeleton-equipment')
+                table.insert(grid, 'kr-big-battery-mk2-equipment')
+                table.insert(grid, 'kr-big-battery-mk2-equipment')
+                table.insert(grid, 'kr-energy-shield-mk3-equipment')
+                table.insert(grid, 'kr-portable-generator-equipment')
+                table.insert(grid, 'personal-roboport-mk2-equipment')
+            else
+                table.insert(grid, 'night-vision-equipment')
+                table.insert(grid, 'belt-immunity-equipment')
+                table.insert(grid, 'personal-laser-defense-equipment')
+                table.insert(grid, 'exoskeleton-equipment')
+                table.insert(grid, 'battery-mk2-equipment')
+                table.insert(grid, 'battery-mk2-equipment')
+                table.insert(grid, 'energy-shield-mk2-equipment')
+                table.insert(grid, 'fusion-reactor-equipment')
+                table.insert(grid, 'solar-panel-equipment')
+                table.insert(grid, 'solar-panel-equipment')
+                table.insert(grid, 'solar-panel-equipment')
+                table.insert(grid, 'personal-roboport-mk2-equipment')
+            end
+            return grid
+        end)(),
         items = {
-            { 200, 'mhh-prototype-construction-robot' },
-            {  50, 'mhh-prototype-logistic-robot' },
-            {   1, 'mhh-prototype-battery' },
-            {   1, 'mhh-prototype-fusion-reactor' },
-            {   1, 'mhh-prototype-energy-shield' },
-            {   1, 'mhh-prototype-exoskeleton' },
-            {   5, 'mhh-prototype-personal-laser-defense' },
-            {   1, 'mhh-prototype-personal-roboport' },
+            { 50, 'construction-robot' },
         },
     },
     overpowered = {
@@ -50,14 +95,12 @@ local presets = {
         grid = (function() local g = copy_grid(base_equipment_grid); add_prototype_to_grid(g); return g end)(),
         items = {
             { 500, 'mhh-prototype-construction-robot' },
-            { 300, 'mhh-prototype-logistic-robot' },
             {   2, 'mhh-prototype-battery' },
             {   1, 'mhh-prototype-fusion-reactor' },
             {   2, 'mhh-prototype-energy-shield' },
             {   2, 'mhh-prototype-exoskeleton' },
             {  10, 'mhh-prototype-personal-laser-defense' },
             {   1, 'mhh-prototype-personal-roboport' },
-            { 100, 'mhh-prototype-roboport' },
         },
     },
     cheaty = {
@@ -136,7 +179,7 @@ local function arm_player(player)
     storage.players[player.name] = true
 end
 
-local armor_checks = { 'mhh-prototype-power-armor', 'se-thruster-suit-4', 'kr-power-armor-mk4', 'kr-power-armor-mk3', 'power-armor-mk2' }
+local armor_checks = { 'mhh-prototype-power-armor', 'se-thruster-suit-4', 'se-thruster-suit-3', 'kr-power-armor-mk4', 'kr-power-armor-mk3', 'power-armor-mk2', 'power-armor' }
 
 local function has_jumpstart_armor(player)
     local function check_inv(inv)

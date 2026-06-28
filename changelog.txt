@@ -1,4 +1,34 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.1
+Date: 2026-06-28
+  Changes:
+    - Overpowered: removed prototype-roboports entirely (was 50, not 50x)
+---------------------------------------------------------------------------------------------------
+Version: 1.8.0
+Date: 2026-06-28
+  Changes:
+    - Advanced: 50 construction bots, no logistic bots
+    - Overpowered: 2500 prototype-roboports (50x), no logistic bots
+---------------------------------------------------------------------------------------------------
+Version: 1.7.0
+Date: 2026-06-28
+  Changes:
+    - Balanced and advanced presets now detect K2/SE and give appropriate tier equipment
+    - Balanced: power-armor with battery-mk1, solar, laser, night vision, belt immunity (K2: entry-level K2 kit; SE: +RTG, lifesupport)
+    - Advanced: power-armor-mk2 with full mid-tier gear (K2: kr-power-armor-mk3; SE: thruster-suit-3 with RTG, lifesupport, shield-mk3)
+    - Both presets put all equipment in the armor grid, only robots in inventory
+    - Fixed balanced armor name (power-armor-mk1 -> power-armor)
+---------------------------------------------------------------------------------------------------
+Version: 1.6.0
+Date: 2026-06-28
+  Changes:
+    - Balanced preset: power-armor-mk1 with battery-mk1, solar, laser defense, night vision, belt immunity; no items
+---------------------------------------------------------------------------------------------------
+Version: 1.5.0
+Date: 2026-06-28
+  Changes:
+    - Balanced preset now also gives 10 laser turrets
+---------------------------------------------------------------------------------------------------
 Version: 1.4.0
 Date: 2026-06-28
   Changes:
