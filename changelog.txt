@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.0
+Date: 2026-06-28
+  Changes:
+    - Replaced armor-choice setting with preset system (balanced/advanced/overpowered/cheaty)
+    - Balanced: vanilla armor, 50 bots, no prototype gear
+    - Advanced: prototype gear, 200 bots, no science
+    - Overpowered: full grid, 500 bots, roboport, no science
+    - Cheaty: current behavior (full prototype, 10k science, everything)
+---------------------------------------------------------------------------------------------------
 Version: 1.3.0
 Date: 2026-06-28
   Changes:
