@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 2026-06-28
+  Changes:
+    - Replaced roboport-mk3 dependency with mhh-prototype-roboport from MHH_Prototype_Equipment
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2026-06-28
   Changes:

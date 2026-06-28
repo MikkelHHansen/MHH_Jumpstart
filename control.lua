@@ -21,7 +21,7 @@ local item_list = {
     {  1, 'night-vision-equipment'},
     {  1, 'solar-panel-equipment'},
     {1500, 'mhh-prototype-logistic-robot'},
-    {  200, 'roboport-mk3'},
+    {  200, 'mhh-prototype-roboport'},
     {  10000, 'production-science-pack'},
     {  10000, 'utility-science-pack'},
 }
