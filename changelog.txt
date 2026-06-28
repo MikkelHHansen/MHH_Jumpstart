@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.9.0
+Date: 2026-06-28
+  Changes:
+    - Cheaty preset: increased personal laser defense from 6 to 16
+---------------------------------------------------------------------------------------------------
+Version: 1.8.9
+Date: 2026-06-28
+  Changes:
+    - Cheaty preset: gives mhh-prototype-thruster-suit armor when SE is active (instead of se-thruster-suit-4)
+---------------------------------------------------------------------------------------------------
 Version: 1.8.8
 Date: 2026-06-28
   Changes:

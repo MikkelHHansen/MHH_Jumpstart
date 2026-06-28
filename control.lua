@@ -104,13 +104,20 @@ local presets = {
         },
     },
     cheaty = {
-        armor = 'auto',
+        armor = (function()
+            if script.active_mods['space-exploration'] then
+                return 'mhh-prototype-thruster-suit'
+            elseif script.active_mods['Krastorio2'] then
+                return 'kr-power-armor-mk4'
+            end
+            return 'mhh-prototype-power-armor'
+        end)(),
         grid = (function() local g = copy_grid(base_equipment_grid); add_prototype_to_grid(g); return g end)(),
         items = {
             {    3, 'mhh-prototype-battery' },
             {    3, 'mhh-prototype-exoskeleton' },
             {    1, 'mhh-prototype-fusion-reactor' },
-            {    6, 'mhh-prototype-personal-laser-defense' },
+            {   16, 'mhh-prototype-personal-laser-defense' },
             {    3, 'mhh-prototype-energy-shield' },
             {    2, 'mhh-prototype-personal-roboport' },
             { 2000, 'mhh-prototype-construction-robot' },
