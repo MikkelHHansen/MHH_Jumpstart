@@ -1,10 +1,10 @@
 {
   "name": "MHH_Jumpstart",
-  "version": "1.10.3",
+  "version": "1.10.4",
   "title": "MHH Jumpstart",
   "author": "Bumlebien",
   "source": "https://github.com/MikkelHHansen/MHH_Jumpstart",
-  "homepage": "https://github.com/MikkelHHansen/MHH_Jumpstart",
+  "homepage": "https://mods.factorio.com/mod/MHH_Jumpstart",
   "dependencies": [
     "base >= 2.0.0",
     "MHH_Prototype_Equipment >= 1.5.9",
