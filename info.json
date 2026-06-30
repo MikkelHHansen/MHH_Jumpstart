@@ -3,8 +3,8 @@
   "version": "1.10.3",
   "title": "MHH Jumpstart",
   "author": "Bumlebien",
-  "source": "https://github.com/MikkelHHansen/FactorioMods",
-  "homepage": "https://github.com/MikkelHHansen/FactorioMods",
+  "source": "https://github.com/MikkelHHansen/MHH_Jumpstart",
+  "homepage": "https://github.com/MikkelHHansen/MHH_Jumpstart",
   "dependencies": [
     "base >= 2.0.0",
     "MHH_Prototype_Equipment >= 1.5.9",
