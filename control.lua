@@ -1,3 +1,15 @@
+local has_quality = script.active_mods["quality"] or script.active_mods["space-age"]
+
+local function q(name, count)
+    local result = { name = name }
+    if count then result.count = count end
+    if has_quality then
+        local ql = settings.startup['mhh-jumpstart-quality'].value
+        if ql and ql ~= 'normal' then result.quality = ql end
+    end
+    return result
+end
+
 local base_equipment_grid = {
     'night-vision-equipment',
     'solar-panel-equipment',
@@ -78,7 +90,7 @@ local presets = {
                 table.insert(grid, 'battery-mk2-equipment')
                 table.insert(grid, 'battery-mk2-equipment')
                 table.insert(grid, 'energy-shield-mk2-equipment')
-                table.insert(grid, 'fusion-reactor-equipment')
+                table.insert(grid, 'fission-reactor-equipment')
                 table.insert(grid, 'solar-panel-equipment')
                 table.insert(grid, 'solar-panel-equipment')
                 table.insert(grid, 'solar-panel-equipment')
@@ -150,7 +162,7 @@ local function arm_player(player)
     local armor_name = get_armor_name(preset)
     local armor_inv = player.get_inventory(defines.inventory.character_armor)
     if armor_inv then
-        armor_inv.insert({ name = armor_name, count = 1 })
+        armor_inv.insert(q(armor_name, 1))
     end
 
     local grid = player.character and player.character.grid
@@ -158,7 +170,7 @@ local function arm_player(player)
     if grid then
         for _, equip_name in ipairs(preset.grid) do
             if prototypes.equipment[equip_name] then
-                local result = grid.put({ name = equip_name })
+                local result = grid.put(q(equip_name))
                 if result then
                     placed[equip_name] = true
                 end
@@ -174,7 +186,7 @@ local function arm_player(player)
         end
         if count > 0 then
             if prototypes.item[name] then
-                player.insert({ name = name, count = count })
+                player.insert(q(name, count))
             else
                 player.print('Unable to add ' .. name .. ' to inventory, please check spelling.')
             end
@@ -184,7 +196,7 @@ local function arm_player(player)
     storage.players[player.name] = true
 end
 
-local armor_checks = { 'mhh-prototype-power-armor', 'mhh-prototype-thruster-suit', 'se-thruster-suit-4', 'se-thruster-suit-3', 'kr-power-armor-mk4', 'kr-power-armor-mk3', 'power-armor-mk2', 'power-armor' }
+local armor_checks = { 'mhh-prototype-power-armor', 'mhh-prototype-thruster-suit', 'se-thruster-suit-4', 'se-thruster-suit-3', 'kr-power-armor-mk4', 'kr-power-armor-mk3', 'power-armor-mk2', 'power-armor', 'mech-armor' }
 
 local function has_jumpstart_armor(player)
     local function check_inv(inv)
