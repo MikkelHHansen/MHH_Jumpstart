@@ -153,6 +153,85 @@ local presets = {
     },
 }
 
+local starter_presets = {
+    balanced = {
+        {  50, 'transport-belt' },
+        {  10, 'underground-belt' },
+        {   5, 'splitter' },
+        {  20, 'inserter' },
+        {   5, 'assembling-machine-1' },
+        {   4, 'stone-furnace' },
+        {   4, 'electric-mining-drill' },
+        {  10, 'small-electric-pole' },
+        {   5, 'medium-electric-pole' },
+        {  20, 'pipe' },
+        {   1, 'boiler' },
+        {   2, 'steam-engine' },
+        {  10, 'wooden-chest' },
+    },
+    advanced = {
+        { 200, 'transport-belt' },
+        {  20, 'underground-belt' },
+        {  10, 'splitter' },
+        {  50, 'inserter' },
+        {  10, 'assembling-machine-1' },
+        {   8, 'steel-furnace' },
+        {   8, 'electric-mining-drill' },
+        {  20, 'small-electric-pole' },
+        {  10, 'medium-electric-pole' },
+        {  50, 'pipe' },
+        {   2, 'boiler' },
+        {   4, 'steam-engine' },
+        {  20, 'iron-chest' },
+    },
+    overpowered = (function()
+        local has_k2 = script.active_mods['Krastorio2']
+        local fast = has_k2 and 'kr-superior-inserter' or 'fast-inserter'
+        return {
+            { 500, 'fast-transport-belt' },
+            {  50, 'fast-underground-belt' },
+            {  20, 'fast-splitter' },
+            {  50, 'inserter' },
+            {  50, fast },
+            {  20, 'assembling-machine-2' },
+            {  16, 'steel-furnace' },
+            {  16, 'electric-mining-drill' },
+            {  50, 'small-electric-pole' },
+            {  20, 'medium-electric-pole' },
+            { 100, 'pipe' },
+            {  20, 'solar-panel' },
+            {  10, 'accumulator' },
+            {  50, 'iron-chest' },
+            {  20, 'steel-chest' },
+        }
+    end)(),
+    cheaty = (function()
+        local has_k2 = script.active_mods['Krastorio2']
+        local fast = has_k2 and 'kr-superior-inserter' or 'fast-inserter'
+        local long = has_k2 and 'kr-superior-long-inserter' or 'long-handed-inserter'
+        return {
+            { 1000, 'express-transport-belt' },
+            {  100, 'express-underground-belt' },
+            {   50, 'express-splitter' },
+            {  100, 'inserter' },
+            {  100, fast },
+            {  100, long },
+            {  100, 'bulk-inserter' },
+            {   50, 'assembling-machine-3' },
+            {   32, 'electric-furnace' },
+            {   32, 'electric-mining-drill' },
+            {  100, 'small-electric-pole' },
+            {   50, 'medium-electric-pole' },
+            {   10, 'substation' },
+            {  200, 'pipe' },
+            {  100, 'solar-panel' },
+            {   50, 'accumulator' },
+            {  100, 'iron-chest' },
+            {   50, 'steel-chest' },
+        }
+    end)(),
+}
+
 local function get_armor_name(preset)
     return preset.armor
 end
@@ -208,6 +287,22 @@ local function arm_player(player)
                 player.insert(q(name, count))
             else
                 player.print('Unable to add ' .. name .. ' to inventory, please check spelling.')
+            end
+        end
+    end
+
+    local starter_preset_name = settings.startup['mhh-jumpstart-starter-items'].value
+    if starter_preset_name ~= 'none' then
+        local starter_items = starter_presets[starter_preset_name]
+        if starter_items then
+            for _, entry in ipairs(starter_items) do
+                local count = entry[1]
+                local name = entry[2]
+                if prototypes.item[name] then
+                    player.insert(q(name, count))
+                else
+                    player.print('Unable to add ' .. name .. ' to inventory, please check spelling.')
+                end
             end
         end
     end

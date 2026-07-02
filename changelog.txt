@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.12.0
+Date: 2026-07-02
+  Changes:
+    - New startup setting: Starter factory items (separate from main preset, mix & match)
+      Balanced: 50 yellow belts, 20 inserters, 5 assemblers, 4 stone furnaces, 4 miners, etc.
+      Advanced: 200 yellow belts, 50 inserters, 10 assemblers, 8 steel furnaces, 8 miners, etc.
+      Overpowered: 500 red belts, 100 inserters (mix), 20 assemblers, 16 steel furnaces, etc.
+      Cheaty: 1000 blue belts, 500 inserters (all types), 50 assemblers, 32 electric furnaces, etc.
+    - Each tier also includes poles, pipes, chests, and power generation as appropriate
+---------------------------------------------------------------------------------------------------
 Version: 1.11.3
 Date: 2026-07-02
   Changes:

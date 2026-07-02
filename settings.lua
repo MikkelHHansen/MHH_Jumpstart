@@ -15,4 +15,12 @@ data:extend{
     allowed_values = { 'normal', 'uncommon', 'rare', 'epic', 'legendary' },
     order = 'b'
   },
+  {
+    name = 'mhh-jumpstart-starter-items',
+    type = 'string-setting',
+    setting_type = 'startup',
+    default_value = 'none',
+    allowed_values = { 'none', 'balanced', 'advanced', 'overpowered', 'cheaty' },
+    order = 'c'
+  },
 }

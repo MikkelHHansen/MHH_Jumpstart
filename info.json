@@ -1,6 +1,6 @@
 {
   "name": "MHH_Jumpstart",
-  "version": "1.11.3",
+  "version": "1.12.0",
   "title": "MHH Jumpstart",
   "author": "Bumlebien",
   "source": "https://github.com/MikkelHHansen/MHH_Jumpstart",
@@ -12,6 +12,6 @@
     "(?) space-exploration",
     "(?) Krastorio2"
   ],
-  "description": "Skip the early-game grind by starting with powerful items, equipment, and armor. Choose from four presets (Balanced, Advanced, Overpowered, Cheaty) and set the quality level of your starting gear. Compatible with Space Age, Space Exploration, and Krastorio 2. Requires MHH_Prototype_Equipment.",
+  "description": "Skip the early-game grind by starting with powerful items, equipment, and armor. Choose from four presets (Balanced, Advanced, Overpowered, Cheaty), set quality on your starting gear, and optionally add starter factory items (belts, inserters, assemblers, and more). Compatible with Space Age, Space Exploration, and Krastorio 2. Requires MHH_Prototype_Equipment.",
   "factorio_version": "2.0"
 }
