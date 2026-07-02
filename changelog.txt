@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.11.3
+Date: 2026-07-02
+  Changes:
+    - Consolidation
+---------------------------------------------------------------------------------------------------
 Version: 1.11.2
 Date: 2026-07-02
   Changes:
@@ -71,7 +76,6 @@ Date: 2026-06-28
 Version: 1.8.4
 Date: 2026-06-28
   Changes:
-    - Fixed stale mod reference in README (MHH_RR_Items → MHH_Prototype_Equipment)
     - Fixed stale item name in README (rr-power-armor → mhh-prototype-power-armor)
     - Fixed locale descriptions to match actual preset contents (bot counts, science packs)
 ---------------------------------------------------------------------------------------------------
@@ -140,11 +144,9 @@ Date: 2026-06-28
 Version: 1.1.0
 Date: 2026-06-28
   Changes:
-    - Updated dependency from MHH_RR_Items to MHH_Prototype_Equipment
     - Updated all item references from rr- to mhh-prototype- prefix
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2026-06-28
   Changes:
     - Initial release: gives OP items, equipment, and armor at game start
-    - Extracted from MHH_Quickstart; requires MHH_RR_Items for item prototypes
