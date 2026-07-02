@@ -1,4 +1,4 @@
-local has_quality = script.active_mods["quality"] or script.active_mods["space-age"]
+local has_quality = true -- quality is part of the base game in Factorio 2.1
 
 local function q(name, count)
     local result = { name = name }
