@@ -1,24 +1,17 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.10.7
-Date: 2026-06-30
+Version: 1.11.1
+Date: 2026-07-02
   Changes:
-    - Fixed forward sync workflow overwriting release repo deploy workflows
----------------------------------------------------------------------------------------------------
-Version: 1.10.6
-Date: 2026-06-30
-  Changes:
-    - Removed luacheck lint step from release repo deploy workflow
----------------------------------------------------------------------------------------------------
-Version: 1.10.5
-Date: 2026-06-30
-  Changes:
-    - Updated source to release repo URL and homepage to mod portal URL
----------------------------------------------------------------------------------------------------
-Version: 1.10.4
-Date: 2026-06-30
-  Changes:
-    - Updated homepage to mod portal URL
+    - Consolidated changelog
 --------------------------------------------------------------------------------------------------
+Version: 1.11.0
+Date: 2026-07-02
+  Changes:
+    - Dual-armor presets with Space Exploration: prototype power armor equipped + SE thruster suit in inventory
+      Overpowered: prototype power armor + se-thruster-suit-3 with basic SE gear
+      Cheaty: prototype power armor + se-thruster-suit-4 with basic SE gear
+    - Removed mhh-prototype-thruster-suit references (item removed from MHH_Prototype_Equipment)
+
 Version: 1.10.3
 Date: 2026-06-30
   Changes:
@@ -28,12 +21,7 @@ Version: 1.10.2
 Date: 2026-06-30
   Changes:
     - Regenerated thumbnail with larger, more readable text
---------------------------------------------------------------------------------------------------
-Version: 1.10.1
-Date: 2026-06-30
-  Changes:
-    - Improved mod description in info.json for clarity and completeness
---------------------------------------------------------------------------------------------------
+
 Version: 1.10.0
 Date: 2026-06-30
   Changes:

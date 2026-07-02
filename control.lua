@@ -103,8 +103,16 @@ local presets = {
         },
     },
     overpowered = {
-        armor = 'auto',
+        armor = 'mhh-prototype-power-armor',
         grid = (function() local g = copy_grid(base_equipment_grid); add_prototype_to_grid(g); return g end)(),
+        secondary_armor = (function()
+            if script.active_mods['space-exploration'] then return 'se-thruster-suit-3' end
+            return nil
+        end)(),
+        secondary_grid = (function()
+            if not script.active_mods['space-exploration'] then return {} end
+            return { 'se-rtg-equipment', 'se-battery-equipment', 'se-battery-equipment', 'se-lifesupport-equipment-3' }
+        end)(),
         items = {
             { 500, 'mhh-prototype-construction-robot' },
             {   2, 'mhh-prototype-battery' },
@@ -117,12 +125,18 @@ local presets = {
     },
     cheaty = {
         armor = (function()
-            if script.active_mods['space-exploration'] then
-                return 'mhh-prototype-thruster-suit'
-            elseif script.active_mods['Krastorio2'] then
+            if script.active_mods['Krastorio2'] then
                 return 'kr-power-armor-mk4'
             end
             return 'mhh-prototype-power-armor'
+        end)(),
+        secondary_armor = (function()
+            if script.active_mods['space-exploration'] then return 'se-thruster-suit-4' end
+            return nil
+        end)(),
+        secondary_grid = (function()
+            if not script.active_mods['space-exploration'] then return {} end
+            return { 'se-rtg-equipment', 'se-battery-equipment', 'se-battery-equipment', 'se-lifesupport-equipment-4' }
         end)(),
         grid = (function() local g = copy_grid(base_equipment_grid); add_prototype_to_grid(g); return g end)(),
         items = {
@@ -140,15 +154,7 @@ local presets = {
 }
 
 local function get_armor_name(preset)
-    if preset.armor ~= 'auto' then
-        return preset.armor
-    end
-    if script.active_mods['space-exploration'] then
-        return 'se-thruster-suit-4'
-    elseif script.active_mods['Krastorio2'] then
-        return 'kr-power-armor-mk4'
-    end
-    return 'mhh-prototype-power-armor'
+    return preset.armor
 end
 
 local function arm_player(player)
@@ -178,6 +184,19 @@ local function arm_player(player)
         end
     end
 
+    if preset.secondary_armor then
+        if prototypes.item[preset.secondary_armor] then
+            player.insert(q(preset.secondary_armor, 1))
+        end
+        if preset.secondary_grid then
+            for _, equip_name in ipairs(preset.secondary_grid) do
+                if prototypes.item[equip_name] then
+                    player.insert(q(equip_name, 1))
+                end
+            end
+        end
+    end
+
     for _, entry in ipairs(preset.items) do
         local count = entry[1]
         local name = entry[2]
@@ -196,7 +215,7 @@ local function arm_player(player)
     storage.players[player.name] = true
 end
 
-local armor_checks = { 'mhh-prototype-power-armor', 'mhh-prototype-thruster-suit', 'se-thruster-suit-4', 'se-thruster-suit-3', 'kr-power-armor-mk4', 'kr-power-armor-mk3', 'power-armor-mk2', 'power-armor', 'mech-armor' }
+local armor_checks = { 'mhh-prototype-power-armor', 'se-thruster-suit-4', 'se-thruster-suit-3', 'kr-power-armor-mk4', 'kr-power-armor-mk3', 'power-armor-mk2', 'power-armor', 'mech-armor' }
 
 local function has_jumpstart_armor(player)
     local function check_inv(inv)
